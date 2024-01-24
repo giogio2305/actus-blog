@@ -1,0 +1,512 @@
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<style>
+@import url('https://fonts.cdnfonts.com/css/sf-pro-display?styles=98774,98777,98776,98772,98773,98775,98770,98771,98769');
+#hero {
+    position: relative;
+    width: 100%;
+    height: 40vh;
+    background-color: #000;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    align-items: end;
+    justify-content: center;
+    color: #fff;
+    font-family: 'SF Pro Display', sans-serif;
+    overflow: clip;
+}
+#hero .title{
+    font-size: 32px;
+    font-weight: 600;
+    margin-bottom: 32px;
+    z-index: 5;
+}
+#hero .bl{
+                position: absolute;
+                width: 196px;
+                height: 196px;
+                top: 50%;
+                background-color: #FF5CF8;
+                filter: blur(72px);
+                opacity: 0.5;
+                z-index: 0;
+            }
+</style>
+<section id="hero">
+    <h1 class="title">Actualité & blog</h1>
+    <div class="bl"></div>
+</section>
+
+
+<style>
+    #blog-post {
+        position: relative;
+        width: 100%;
+        height: auto;
+        padding: 0;
+        margin: 40px 0;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        font-family: 'SF Pro Display', sans-serif;
+        overflow: clip;
+    }
+    #blog-post .tabs {
+        width: 100%;
+        height: auto;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    #blog-post .tabs .tab {
+        max-width: 196px;
+        max-height: 52px;
+        padding: 8px 16px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: #fff;
+        background-color: #8D8D8D;
+        margin: 0 10px;
+        border-radius: 20px;
+        font-size: 15px;
+        cursor: pointer;
+        transition: all .25s ease-in-out;
+    }
+    #blog-post .tabs .active {
+        background-color: #0048D5;
+    }
+    
+    /* Grid style */
+    #blog-post .grid{
+        width: 100%;
+        height: auto;
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: start;
+        margin: 40px 0;
+    }
+    
+    #blog-post .grid .tile{
+        width: calc(94%/2);
+        height: 420px;
+        margin: 12px;
+        padding: 4px;
+        display: flex;
+        flex-direction: column;
+        align-items: start;
+        justify-content: space-between;
+        border-radius: 12px;
+        border: 1.8px solid #0048D5;
+    }
+
+    #blog-post .grid .tile img{
+        width: 100%;
+        height: 276px;
+        background-color: #FF5CF8;
+        border-radius: 12px;
+    }
+
+    #blog-post .grid .tile .text{
+        display: block;
+        width: 95%;
+        height: 20%;
+        padding: 2px 4px;
+        margin: 2px 0;
+        overflow: hidden;
+    }
+    #blog-post .grid .tile .text .title{
+        font-size: 20px;
+        font-weight: 600;
+        letter-spacing: -0.3px;
+        margin: 6px 0;
+    }
+    #blog-post .grid .tile .text .para{
+        width: 100%;
+        height: 50%;
+        font-size: 14px;
+        font-weight: 400;
+        letter-spacing: 0.3px;
+        color: #000;
+        opacity: 0.5;
+    }
+    #blog-post .grid .tile .badges{
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        width: 100%;
+        height: 8%;
+    }
+
+    #blog-post .grid .badges .lbc{
+        display: flex;
+        align-items: center;
+        justify-content: space-evenly;
+        width: 40%;
+    }
+
+    #blog-post .grid .badges .pokemon{
+        max-width: 104px;
+        max-height: 32px;
+        padding: 6px 10px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: #fff;
+        background-color: #FF0000;
+        border-radius: 20px;
+        font-size: 14px;
+        font-weight: 400;
+        margin: 3px 0;
+        cursor: pointer;
+    }  
+    #blog-post .grid .badges .dragon{
+        max-width: 104px;
+        max-height: 32px;
+        padding: 6px 10px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: #000;
+        background-color: #FFD600;
+        border-radius: 20px;
+        font-size: 14px;
+        font-weight: 400;
+        margin: 3px 0;
+        cursor: pointer;
+    }  
+    #blog-post .grid .badges .date{
+        max-width: 120px;
+        max-height: 32px;
+        padding: 6px 10px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: #fff;
+        background-color: #8D8D8D;
+        border-radius: 20px;
+        font-size: 14px;
+        font-weight: 400;
+        cursor: pointer;
+    }
+    #blog-post .grid .badges .lire{
+        width: 88px;
+        max-height: 32px;
+        padding: 5px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: #fff;
+        background-color: #0048D5;
+        border-radius: 20px;
+        font-size: 14px;
+        font-weight: 400;
+        cursor: pointer;
+        margin-right: 8px;
+        margin-top: 4px;
+    }
+
+    #blog-post .tabs .plus{
+        width: 120px;
+        height: auto;
+        padding: 14px;
+        background-color: #F5F5F5;
+        border: 1.8px solid #0048D5;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 12px;
+        font-size: 16px;
+        font-weight: 600;
+        cursor: pointer;
+    }
+
+    @media all and (max-width:600px) { 
+        #blog-post .tabs {
+        width: 100vw;
+        height: auto;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+        #blog-post .tabs .tab {
+        max-width: 220px;
+        max-height: 52px;
+        padding: 8px 16px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: #fff;
+        background-color: #8D8D8D;
+        margin: 0 8px;
+        border-radius: 20px;
+        font-size: 10px;
+        cursor: pointer;
+        transition: all .25s ease-in-out;
+    }
+    #blog-post .tabs .active {
+        background-color: #0048D5;
+    }
+        #blog-post .grid{
+        width: 100vw;
+        height: auto;
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: start;
+        margin: 40px 0;
+    }
+    
+    #blog-post .grid .tile{
+        width: 100vw;
+        height: 60vh;
+        margin: 12px;
+        padding: 4px;
+        display: flex;
+        flex-direction: column;
+        align-items: start;
+        justify-content: space-between;
+        border-radius: 12px;
+        border: 1.8px solid #0048D5;
+    }
+
+    #blog-post .grid .tile img{
+        width: 100%;
+        height: 36vh;
+        background-color: #FF5CF8;
+        border-radius: 12px;
+    }
+    #blog-post .grid .tile .text{
+        display: block;
+        width: 95%;
+        height: 20%;
+        padding: 2px 4px;
+        margin: 2px 0;
+        overflow: hidden;
+    }
+    #blog-post .grid .tile .text .title{
+        font-size: 18px;
+        font-weight: 600;
+        letter-spacing: -0.3px;
+        margin: 6px 0;
+    }
+    #blog-post .grid .tile .text .para{
+        width: 100%;
+        height: auto;
+        font-size: 13px;
+        font-weight: 400;
+        letter-spacing: 0.3px;
+        color: #000;
+        opacity: 0.5;
+    }
+
+
+    #blog-post .grid .tile .badges{
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        width: 100%;
+        height: 8%;
+    }
+
+    #blog-post .grid .badges .lbc{
+        display: flex;
+        align-items: center;
+        justify-content: space-evenly;
+        width: 220px;
+    }
+
+    #blog-post .grid .badges .pokemon{
+        max-width: 108px;
+        max-height: 32px;
+        padding: 6px 10px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: #fff;
+        background-color: #FF0000;
+        border-radius: 20px;
+        font-size: 13px;
+        font-weight: 400;
+        margin: 3px 0;
+        cursor: pointer;
+    }  
+    #blog-post .grid .badges .dragon{
+        max-width: 108px;
+        max-height: 32px;
+        padding: 6px 10px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: #000;
+        background-color: #FFD600;
+        border-radius: 20px;
+        font-size: 13spx;
+        font-weight: 400;
+        margin: 3px 0;
+        cursor: pointer;
+    }  
+    #blog-post .grid .badges .date{
+        max-width: 128px;
+        max-height: 32px;
+        padding: 6px 10px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: #fff;
+        background-color: #8D8D8D;
+        border-radius: 20px;
+        font-size: 10px;
+        font-weight: 400;
+        cursor: pointer;
+    }
+    #blog-post .grid .badges .lire{
+        width: 88px;
+        max-height: 32px;
+        padding: 5px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: #fff;
+        background-color: #0048D5;
+        border-radius: 20px;
+        font-size: 14px;
+        font-weight: 400;
+        cursor: pointer;
+        margin-right: 8px;
+        margin-top: 4px;
+    }
+
+    }
+
+    @media screen and (min-width:600px) and (max-width: 1024px) { 
+        
+        #blog-post .grid{
+        width: 100vw;
+        height: auto;
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: start;
+        margin: 40px 0;
+    }
+    
+    #blog-post .grid .tile{
+        width: calc(90vw/2);
+        height: 490px;
+        margin: 12px;
+        padding: 4px;
+        display: flex;
+        flex-direction: column;
+        align-items: start;
+        justify-content: space-between;
+        border-radius: 12px;
+        border: 1.8px solid #0048D5;
+    }
+
+    #blog-post .grid .tile .text .para{
+        width: 100%;
+        height: auto;
+        font-size: 13px;
+        font-weight: 400;
+        letter-spacing: 0.3px;
+        color: #000;
+        opacity: 0.5;
+        text-overflow: ellipsis;
+    }
+    #blog-post .tabs .active {
+        background-color: #0048D5;
+    }
+
+    #blog-post .grid .tile .badges{
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        width: 100%;
+        height: 52px;
+    }
+
+    #blog-post .grid .badges .lbc{
+        display: flex;
+        align-items: center;
+        justify-content: space-evenly;
+        width: 240px;
+    }
+    }
+    </style>
+<section id="blog-post">
+    <!-- Tabs -->
+    <div class="tabs">
+        <div class="tab">toutes l’actualité</div>
+        <div class="tab">Actualité ProKases</div>
+        <div class="tab">Actualité TCG</div>
+    </div>
+
+    <!-- Grid container -->
+    <div class="grid">
+        <!-- Grid tile -->
+        <div class="tile">
+                <img src="./assets/t1.png" alt="">
+            <div class="text">
+                <h3 class="title">Pokémon Écarlate et Violet Des changements à l’horizon</h3>
+                <span class="para">Des changements se profilent à l’horizon pour le Jeu de Cartes à Collectionner Pokémon avec la série Écarlate et Violet du JCC Pokémon</span>
+            </div>
+
+            <div class="badges">
+                <span class="lbc">
+                    <div class="pokemon">Pokémon</div>
+                    <div class="date">25 Novembre 2023</div>
+                </span>
+
+                <div class="lire">
+                    Lire
+                </div>
+            </div>
+        </div>
+
+        <!-- Grid tile -->
+        <div class="tile">
+            <img src="./assets/t2.png" alt="">
+        <div class="text">
+            <h3 class="title">Pokémon 151 : Une extension réservée aux scalpeurs ?</h3>
+            <span class="para">Publiée le 22 septembre 2023 en France, l’extension très attendue crée un véritable buzz au sein de la communauté Pokémon. Mélange d’enthousiasme et de déception, Pokémon 151</span>
+        </div>
+
+        <div class="badges">
+            <span class="lbc">
+                <div class="dragon">Dragon Ball</div>
+                <div class="date">25 Novembre 2023</div>
+            </span>
+
+            <div class="lire">
+                Lire
+            </div>
+        </div>
+        </div>
+    </div>
+
+    <!-- Plus -->
+    <div class="tabs">
+        <div class="plus">
+            Afficher plus
+        </div>
+    </div>
+    <!-- Toggle script -->
+    <script>
+        var tabs = document.getElementsByClassName("tab");
+        tabs[0].classList.add('active');
+
+        for (var i = 0; i < tabs.length; i++) {
+            tabs[i].addEventListener("click", function() {
+                for (var j = 0; j < tabs.length; j++) {
+                    tabs[j].classList.remove("active");
+                }
+                this.classList.add("active");
+            });
+        }
+    </script>
+</section>
+
